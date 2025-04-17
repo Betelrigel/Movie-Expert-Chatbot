@@ -1,2 +1,2 @@
 # Movie-Expert-Chatbot
-A Neo4j backed Movie Expert Chatbot
+The Movie Expert Chatbot is a Python-based conversational application with a Streamlit interface, backed by a Neo4j graph database. It dynamically constructs and executes Cypher queries based on user input to provide movie recommendations, explore actor-director collaborations, and perform genre or year-based searches. The graph models entities such as Movie, Actor, Director, and Genre, along with relationships like ACTED_IN, DIRECTED, and BELONGS_TO_GENRE, enabling efficient multi-hop queries. This project demonstrates an interactive and intuitive way to explore complex movie data using graph-based reasoning.
