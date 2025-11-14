@@ -97,13 +97,16 @@ st.markdown(
         color: orange !important;
         font-size: 0.95rem;
     }
-    /* Mobile-safe footer adjustment */
+    /* FOOTER FIX FOR MOBILE */
 @media (max-width: 768px) {
     .footer-wrapper {
-        bottom: 70px !important; /* move footer above chat input */
-        z-index: 999999 !important;
+        bottom: 80px !important;       /* pushes above input box */
+        z-index: 999999999 !important; /* highest layer */
+        position: fixed !important;    /* ensure stays on top */
     }
 }
+
+
 
 
     </style>
