@@ -1,0 +1,10 @@
+langchain
+langchain-core
+groq
+langchain_groq
+langchain_community
+langchain-neo4j
+neo4j-driver
+streamlit
+requests
+sentence-transformers
