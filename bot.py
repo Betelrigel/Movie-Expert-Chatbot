@@ -7,10 +7,10 @@ from agent import generate_response
 # -------------------------------------------------
 # PAGE CONFIG
 # -------------------------------------------------
-st.set_page_config(page_title="Celluloid", page_icon="🎥", layout="centered")
+st.set_page_config(page_title="Celluloid", page_icon="Film", layout="centered")
 
 # -------------------------------------------------
-# FULL CSS (updated for mobile footer)
+# FULL CSS – mobile footer BELOW input bar + smaller font
 # -------------------------------------------------
 st.markdown(
     """
@@ -45,7 +45,7 @@ st.markdown(
         margin: 10px 0;
         width: fit-content;
         max-width: 75%;
-        margin-left: auto; /* RIGHT align */
+        margin-left: auto;
     }
 
     .chat-bubble-assistant {
@@ -61,7 +61,7 @@ st.markdown(
     /* ---------- FOOTER ---------- */
     .footer-wrapper {
         position: fixed;
-        bottom: 15px;
+        bottom: 15px;               /* desktop */
         left: 50%;
         transform: translateX(-50%);
         z-index: 9999;
@@ -89,27 +89,27 @@ st.markdown(
         white-space: nowrap;
     }
 
-    .footer-link:hover {
-        text-decoration: none !important;
-    }
+    .footer-link:hover { text-decoration: none !important; }
 
-    .footer-text {
-        color: orange !important;
-        font-size: 0.95rem;
-    }
+    .footer-text { color: orange !important; font-size: 0.95rem; }
 
-    /* ---------- MOBILE FIX ---------- */
+    /* ---------- MOBILE – BELOW INPUT BAR ---------- */
     @media (max-width: 768px) {
+        /* Streamlit's chat input has ~70px height + padding; 80px pushes footer safely under it */
         .footer-wrapper {
-            bottom: 80px !important;           /* Above input bar */
-            position: fixed !important;
+            bottom: 0 !important;          /* stick to very bottom */
+            top: auto !important;
+            transform: none !important;
+            left: 0 !important;
+            width: 100% !important;
+            padding-bottom: 80px;          /* extra breathing room under the input */
             z-index: 999999 !important;
         }
 
         .footer-row {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
             width: 90%;
             margin: 0 auto;
             padding: 8px 0;
@@ -120,11 +120,11 @@ st.markdown(
         .footer-link {
             white-space: normal;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.8rem;            /* smaller font on mobile */
         }
 
-        .footer-row span {
-            display: none; /* Hide the • separator on mobile */
+        .footer-row span {                /* hide the • on mobile */
+            display: none;
         }
     }
     </style>
@@ -137,7 +137,7 @@ st.markdown(
 # -------------------------------------------------
 st.markdown(
     """
-    <div class="title-text">🎥 Celluloid</div>
+    <div class="title-text">Celluloid</div>
     <div class="subtitle-text">Ask me anything… except spoilers.</div>
     """,
     unsafe_allow_html=True,
@@ -206,12 +206,12 @@ quotes = [
 ]
 
 st.markdown(
-    f"<p style='text-align:center;color:#888;margin-top:40px;'>🎬 {random.choice(quotes)}</p>",
+    f"<p style='text-align:center;color:#888;margin-top:40px;'>{random.choice(quotes)}</p>",
     unsafe_allow_html=True,
 )
 
 # -------------------------------------------------
-# FIXED FOOTER (Mobile: Stacked, Below Input)
+# FIXED FOOTER – mobile: stacked, below input, small font
 # -------------------------------------------------
 st.markdown(
     """
@@ -222,7 +222,7 @@ st.markdown(
             </a>
             <span>•</span>
             <a class="footer-link" href="https://www.buymeacoffee.com/MarinaTS" target="_blank" rel="noopener noreferrer">
-                Enjoying Celluloid? Buy me a coffee ☕
+                Enjoying Celluloid? Buy me a coffee [coffee]
             </a>
         </div>
     </div>
