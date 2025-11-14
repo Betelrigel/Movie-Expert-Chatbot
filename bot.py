@@ -10,7 +10,7 @@ from agent import generate_response
 st.set_page_config(page_title="Celluloid", page_icon="Film", layout="centered")
 
 # -------------------------------------------------
-# FULL CSS – TOP LEFT & RIGHT FOOTER
+# FULL CSS – TOP-LEFT STACKED FOOTER (NO BACKGROUND)
 # -------------------------------------------------
 st.markdown(
     """
@@ -58,42 +58,37 @@ st.markdown(
         max-width: 75%;
     }
 
-    /* ---------- TOP FIXED FOOTER (LEFT & RIGHT) ---------- */
-    .top-footer {
+    /* ---------- TOP-LEFT STACKED FOOTER (NO BG) ---------- */
+    .top-left-footer {
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 40px;
-        background: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(5px);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 16px;
+        top: 12px;
+        left: 16px;
         z-index: 999999;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
         font-size: 0.85rem;
+        font-weight: 700;
         color: orange;
-        border-bottom: 1px solid rgba(255, 165, 0, 0.3);
     }
 
-    .top-footer a {
+    .top-left-footer a {
         color: orange !important;
-        font-weight: 700;
         text-decoration: none !important;
         white-space: nowrap;
     }
 
-    .top-footer a:hover {
+    .top-left-footer a:hover {
         text-decoration: underline !important;
     }
 
-    /* Mobile adjustments */
+    /* Mobile: smaller font, tighter spacing */
     @media (max-width: 768px) {
-        .top-footer {
-            font-size: 0.75rem;
-            padding: 0 12px;
-            height: 36px;
+        .top-left-footer {
+            top: 10px;
+            left: 12px;
+            font-size: 0.78rem;
+            gap: 5px;
         }
     }
     </style>
@@ -180,11 +175,11 @@ st.markdown(
 )
 
 # -------------------------------------------------
-# TOP LEFT & RIGHT FOOTER
+# TOP-LEFT STACKED FOOTER (NO BACKGROUND)
 # -------------------------------------------------
 st.markdown(
     """
-    <div class="top-footer">
+    <div class="top-left-footer">
         <a href="https://www.linkedin.com/in/marina-ts-446939212/" target="_blank" rel="noopener noreferrer">
             Created by Marina TS
         </a>
