@@ -10,7 +10,7 @@ from agent import generate_response
 st.set_page_config(page_title="Celluloid", page_icon="Film", layout="centered")
 
 # -------------------------------------------------
-# FULL CSS – mobile footer BELOW input bar + smaller font
+# FULL CSS – TOP LEFT & RIGHT FOOTER
 # -------------------------------------------------
 st.markdown(
     """
@@ -58,73 +58,42 @@ st.markdown(
         max-width: 75%;
     }
 
-    /* ---------- FOOTER ---------- */
-    .footer-wrapper {
+    /* ---------- TOP FIXED FOOTER (LEFT & RIGHT) ---------- */
+    .top-footer {
         position: fixed;
-        bottom: 15px;               /* desktop */
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 9999;
-        text-align: center;
-        opacity: 0.95;
-        pointer-events: none;
-        width: 100%;
-    }
-
-    .footer-row {
-        display: inline-flex;
-        gap: 24px;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        pointer-events: auto;
-        background: rgba(0,0,0,0);
-        padding: 4px 10px;
-        border-radius: 8px;
+        padding: 0 16px;
+        z-index: 999999;
+        font-size: 0.85rem;
+        color: orange;
+        border-bottom: 1px solid rgba(255, 165, 0, 0.3);
     }
 
-    .footer-link {
+    .top-footer a {
         color: orange !important;
-        font-size: 0.95rem;
         font-weight: 700;
         text-decoration: none !important;
         white-space: nowrap;
     }
 
-    .footer-link:hover { text-decoration: none !important; }
+    .top-footer a:hover {
+        text-decoration: underline !important;
+    }
 
-    .footer-text { color: orange !important; font-size: 0.95rem; }
-
-    /* ---------- MOBILE – BELOW INPUT BAR ---------- */
+    /* Mobile adjustments */
     @media (max-width: 768px) {
-        /* Streamlit's chat input has ~70px height + padding; 80px pushes footer safely under it */
-        .footer-wrapper {
-            bottom: 0 !important;          /* stick to very bottom */
-            top: auto !important;
-            transform: none !important;
-            left: 0 !important;
-            width: 100% !important;
-            padding-bottom: 80px;          /* extra breathing room under the input */
-            z-index: 999999 !important;
-        }
-
-        .footer-row {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            width: 90%;
-            margin: 0 auto;
-            padding: 8px 0;
-            background: rgba(0,0,0,0.3);
-            border-radius: 10px;
-        }
-
-        .footer-link {
-            white-space: normal;
-            text-align: center;
-            font-size: 0.8rem;            /* smaller font on mobile */
-        }
-
-        .footer-row span {                /* hide the • on mobile */
-            display: none;
+        .top-footer {
+            font-size: 0.75rem;
+            padding: 0 12px;
+            height: 36px;
         }
     }
     </style>
@@ -211,20 +180,17 @@ st.markdown(
 )
 
 # -------------------------------------------------
-# FIXED FOOTER – mobile: stacked, below input, small font
+# TOP LEFT & RIGHT FOOTER
 # -------------------------------------------------
 st.markdown(
     """
-    <div class="footer-wrapper" aria-hidden="false">
-        <div class="footer-row">
-            <a class="footer-link" href="https://www.linkedin.com/in/marina-ts-446939212/" target="_blank" rel="noopener noreferrer">
-                Created by Marina TS
-            </a>
-            <span>•</span>
-            <a class="footer-link" href="https://www.buymeacoffee.com/MarinaTS" target="_blank" rel="noopener noreferrer">
-                Enjoying Celluloid? Buy me a coffee [coffee]
-            </a>
-        </div>
+    <div class="top-footer">
+        <a href="https://www.linkedin.com/in/marina-ts-446939212/" target="_blank" rel="noopener noreferrer">
+            Created by Marina TS
+        </a>
+        <a href="https://www.buymeacoffee.com/MarinaTS" target="_blank" rel="noopener noreferrer">
+            Enjoying Celluloid? Buy me a coffee [coffee]
+        </a>
     </div>
     """,
     unsafe_allow_html=True,
