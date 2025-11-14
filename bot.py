@@ -181,10 +181,10 @@ st.markdown(
     """
     <div class="top-left-footer">
         <a href="https://www.linkedin.com/in/marina-ts-446939212/" target="_blank" rel="noopener noreferrer">
-            Created by Marina TS
+            Created by Marina TS [in]
         </a>
         <a href="https://www.buymeacoffee.com/MarinaTS" target="_blank" rel="noopener noreferrer">
-            Enjoying Celluloid? Buy me a coffee [coffee]
+            Enjoying? Buy me a coffee ☕
         </a>
     </div>
     """,
