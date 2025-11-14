@@ -97,6 +97,14 @@ st.markdown(
         color: orange !important;
         font-size: 0.95rem;
     }
+    /* Mobile-safe footer adjustment */
+@media (max-width: 768px) {
+    .footer-wrapper {
+        bottom: 70px !important; /* move footer above chat input */
+        z-index: 999999 !important;
+    }
+}
+
 
     </style>
     """,
