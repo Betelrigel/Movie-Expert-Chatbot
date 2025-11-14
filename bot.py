@@ -7,7 +7,7 @@ from agent import generate_response
 # -------------------------------------------------
 # PAGE CONFIG
 # -------------------------------------------------
-st.set_page_config(page_title="Celluloid", page_icon="Film", layout="centered")
+st.set_page_config(page_title="📽 Celluloid", page_icon="Film", layout="centered")
 
 # -------------------------------------------------
 # FULL CSS – TOP-LEFT STACKED FOOTER (NO BACKGROUND)
@@ -101,7 +101,7 @@ st.markdown(
 # -------------------------------------------------
 st.markdown(
     """
-    <div class="title-text">Celluloid</div>
+    <div class="title-text">📽 Celluloid</div>
     <div class="subtitle-text">Ask me anything… except spoilers.</div>
     """,
     unsafe_allow_html=True,
