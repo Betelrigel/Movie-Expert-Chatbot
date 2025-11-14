@@ -10,7 +10,7 @@ from agent import generate_response
 st.set_page_config(page_title="Celluloid", page_icon="🎥", layout="centered")
 
 # -------------------------------------------------
-# FULL CSS (includes footer)
+# FULL CSS (updated for mobile footer)
 # -------------------------------------------------
 st.markdown(
     """
@@ -58,7 +58,7 @@ st.markdown(
         max-width: 75%;
     }
 
-    /* Fixed Bottom-Center Footer */
+    /* ---------- FOOTER ---------- */
     .footer-wrapper {
         position: fixed;
         bottom: 15px;
@@ -68,6 +68,7 @@ st.markdown(
         text-align: center;
         opacity: 0.95;
         pointer-events: none;
+        width: 100%;
     }
 
     .footer-row {
@@ -75,12 +76,11 @@ st.markdown(
         gap: 24px;
         align-items: center;
         pointer-events: auto;
-        background: rgba(0, 0, 0, 0.0);
+        background: rgba(0,0,0,0);
         padding: 4px 10px;
         border-radius: 8px;
     }
 
-    /* Orange Footer Links - no underline */
     .footer-link {
         color: orange !important;
         font-size: 0.95rem;
@@ -97,18 +97,36 @@ st.markdown(
         color: orange !important;
         font-size: 0.95rem;
     }
-    /* FOOTER FIX FOR MOBILE */
-@media (max-width: 768px) {
-    .footer-wrapper {
-        bottom: 80px !important;       /* pushes above input box */
-        z-index: 999999999 !important; /* highest layer */
-        position: fixed !important;    /* ensure stays on top */
+
+    /* ---------- MOBILE FIX ---------- */
+    @media (max-width: 768px) {
+        .footer-wrapper {
+            bottom: 80px !important;           /* Above input bar */
+            position: fixed !important;
+            z-index: 999999 !important;
+        }
+
+        .footer-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 8px 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+
+        .footer-link {
+            white-space: normal;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-row span {
+            display: none; /* Hide the • separator on mobile */
+        }
     }
-}
-
-
-
-
     </style>
     """,
     unsafe_allow_html=True,
@@ -193,7 +211,7 @@ st.markdown(
 )
 
 # -------------------------------------------------
-# FIXED FOOTER
+# FIXED FOOTER (Mobile: Stacked, Below Input)
 # -------------------------------------------------
 st.markdown(
     """
@@ -202,7 +220,7 @@ st.markdown(
             <a class="footer-link" href="https://www.linkedin.com/in/marina-ts-446939212/" target="_blank" rel="noopener noreferrer">
                 Created by Marina TS
             </a>
-            <span style="color:orange;font-size:0.95rem;">•</span>
+            <span>•</span>
             <a class="footer-link" href="https://www.buymeacoffee.com/MarinaTS" target="_blank" rel="noopener noreferrer">
                 Enjoying Celluloid? Buy me a coffee ☕
             </a>
